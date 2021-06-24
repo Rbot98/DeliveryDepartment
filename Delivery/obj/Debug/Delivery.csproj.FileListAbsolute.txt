@@ -1,0 +1,10 @@
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\bin\Debug\Delivery.exe.config
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\bin\Debug\Delivery.exe
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\bin\Debug\Delivery.pdb
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\obj\Debug\Delivery.csproj.CoreCompileInputs.cache
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\obj\Debug\Delivery.exe
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\obj\Debug\Delivery.pdb
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\obj\Debug\Delivery.csprojAssemblyReference.cache
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\bin\Debug\Newtonsoft.Json.dll
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\bin\Debug\Newtonsoft.Json.xml
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\obj\Debug\Delivery.csproj.CopyComplete

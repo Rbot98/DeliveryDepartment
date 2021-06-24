@@ -1,0 +1,6 @@
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\bin\Release\Delivery.exe.config
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\bin\Release\Delivery.exe
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\bin\Release\Delivery.pdb
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\obj\Release\Delivery.csproj.CoreCompileInputs.cache
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\obj\Release\Delivery.exe
+C:\Users\RonnieAdmin\Desktop\DeliveryClass\Delivery\obj\Release\Delivery.pdb

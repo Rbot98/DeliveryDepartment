@@ -9,9 +9,9 @@ namespace Delivery
     // Management Employees --------------------------------------------------------------------------------------
     class Cleaner : Employee
     {
-        public Cleaner(int id, string name)
+        public Cleaner(string name)
         {
-            base.NewEmployee(id, name);
+            base.NewEmployee(name);
             _type = 0;
             _ranks.Add("junior", 0);
 
@@ -20,9 +20,9 @@ namespace Delivery
 
     class ToxicCleaner : Employee
     {
-        public ToxicCleaner(int id, string name)
+        public ToxicCleaner(string name)
         {
-            base.NewEmployee(id, name);
+            base.NewEmployee(name);
             _type = 0;
             _ranks.Add("junior", 0);
             _ranks.Add("DecisionMaker", 50);
@@ -33,9 +33,9 @@ namespace Delivery
 
     class HeadCleaner : Employee
     {
-        public HeadCleaner(int id, string name)
+        public HeadCleaner(string name)
         {
-            base.NewEmployee(id, name);
+            base.NewEmployee(name);
             _type = 0;
             _ranks.Add("Senior", 5);
         }
@@ -43,9 +43,9 @@ namespace Delivery
 
     class MasterCleaner : Employee
     {
-        public MasterCleaner(int id, string name)
+        public MasterCleaner(string name)
         {
-            base.NewEmployee(id, name);
+            base.NewEmployee(name);
             _type = 0;
             _ranks.Add("DecisionMaker", 50);
         }
@@ -53,18 +53,18 @@ namespace Delivery
 
     class Cook : Employee
     {
-        public Cook(int id, string name)
+        public Cook(string name)
         {
-            base.NewEmployee(id, name);
+            base.NewEmployee(name);
             _type = 0;
             _ranks.Add("Senior", 5);
         }
     }
     class SuChef : Employee
     {
-        public SuChef(int id, string name)
+        public SuChef(string name)
         {
-            base.NewEmployee(id, name);
+            base.NewEmployee(name);
             _type = 0;
             _ranks.Add("Senior", 5);
             _ranks.Add("Expert", 30);
@@ -72,9 +72,9 @@ namespace Delivery
     }
     class Chef : Employee
     {
-        public Chef(int id, string name)
+        public Chef(string name)
         {
-            base.NewEmployee(id, name);
+            base.NewEmployee(name);
             _type = 0;
             _ranks.Add("Senior", 5);
             _ranks.Add("Expert", 30);
@@ -83,18 +83,18 @@ namespace Delivery
     }
     class FoodDistributer : Employee
     {
-        public FoodDistributer(int id, string name)
+        public FoodDistributer(string name)
         {
-            base.NewEmployee(id, name);
+            base.NewEmployee(name);
             _type = 0;
             _ranks.Add("junior", 0);
         }
     }
     class HeadOfManagement : Employee
     {
-        public HeadOfManagement(int id, string name)
+        public HeadOfManagement(string name)
         {
-            base.NewEmployee(id, name);
+            base.NewEmployee(name);
             _type = 0;
             _ranks.Add("DecisionMaker", 50);
             _ranks.Add("Manager", 0);
