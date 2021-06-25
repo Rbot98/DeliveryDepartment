@@ -4,18 +4,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delivery
+namespace DeliveryDepartment
 {
+    public enum EmployeeType
+    {
+        Cleaner,
+        ToxCleaner,
+        HeadCleaner,
+        MasterCleaner,
+        Cook,
+        SuChef,
+        Chef,
+        FoodDistributer,
+        HeadOfManagement,
+        Paramedic,
+        Nurse,
+        Medic,
+        HeadNurse,
+        OB,
+        BreachOB,
+        Intern,
+        BreachOBIntern,
+        Doctor,
+        SeniorDoctor,
+        ExpertDoctor,
+        VPDepartmentManager,
+        DepartmentManager
+    }
+
+    public enum Ranks
+    {
+        Junior,
+        Senior,
+        Expert,
+        DecisionMaker,
+        Manager,
+        Risk
+    }
     class Employee
     {
-        protected string _name;
-        private int _hours;
+        protected int _id;
+        private double _hours;
         protected EmployeeType _type;
-        public string Name
+        public int ID
         {
-            get { return this._name; }
+            get { return this._id; }
         }
-        public int Hours
+        public double Hours
         {
             get { return this._hours; }
             set { this._hours = value; }
@@ -24,21 +59,21 @@ namespace Delivery
         {
             get { return (int)this._type; }
         }
-        public void AddHours(int hours)
+        public void AddHours(double hours)
         {
             // method to add monthly working hours
             _hours += hours;
         }
-        public Employee(string name, string type)
+        public Employee(int id, string type)
         {
             // Create new employee with generic properties, specific properties in child classes
-            this._name = name;
+            this._id = id;
             this._hours = 0; // starter of monthly hours
             this._type = (EmployeeType)Enum.Parse(typeof(EmployeeType), type, true);
         }
         public double CalcSalary(double wage)
         {
-            int hours = this._hours;
+            double hours = this._hours;
             EmployeeType type = this._type;
             
             // method for calculating salary for generic employee
@@ -121,50 +156,13 @@ namespace Delivery
         public override string ToString()
         {
 
-            return "Employee Setails:" + "\n"
-                + "Name: " + this._name + "\n"
+            return "Employee Details:" + "\n"
+                + "Name: " + this._id + "\n"
                 + "Profession: " + this._type.ToString() + "\n"
                 + "Hours worked so far: " + this._hours + "\n";
         }
 
     }
-
-    enum EmployeeType
-    {
-        Cleaner,
-        ToxCleaner,
-        HeadCleaner,
-        MasterCleaner,
-        Cook,
-        SuChef,
-        Chef,
-        FoodDistributer,
-        HeadOfManagement,
-        Paramedic,
-        Nurse,
-        Medic,
-        HeadNurse,
-        OB,
-        BreachOB,
-        Intern,
-        BreachOBIntern,
-        Doctor,
-        SeniorDoctor,
-        ExpertDoctor,
-        VPDepartmentManager,
-        DepartmentManager
-    }
-
-    enum Ranks
-    {
-        Junior,
-        Senior,
-        Expert,
-        DecisionMaker,
-        Manager,
-        Risk
-    }
-
     
 }
 
