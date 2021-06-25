@@ -13,9 +13,9 @@ namespace Delivery
         static void Main(string[] args)
         {
             Employee e = new Employee("Olga", "DepartmentManager");
-            Console.WriteLine(e.Type);
             e.AddHours(150);
-            Console.WriteLine(e.CalcSalary(30000));
+            Console.WriteLine("Salary: " + e.CalcSalary(30000));
+            Console.WriteLine(e.ToString());
         }
             
    

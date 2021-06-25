@@ -120,7 +120,11 @@ namespace Delivery
         }
         public override string ToString()
         {
-            return "ok";
+
+            return "Employee Setails:" + "\n"
+                + "Name: " + this._name + "\n"
+                + "Profession: " + this._type.ToString() + "\n"
+                + "Hours worked so far: " + this._hours + "\n";
         }
 
     }
