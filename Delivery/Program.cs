@@ -12,10 +12,10 @@ namespace Delivery
     {
         static void Main(string[] args)
         {
-            StreamReader sr = new StreamReader("../../employees.json");
-            string jsonString = sr.ReadToEnd();
-            var dictionary = JsonConvert.DeserializeObject<List<dynamic>>(jsonString).ToDictionary ( x => (string)x.key, y => (string)y.value);
-            
+            Employee e = new Employee("Olga", "DepartmentManager");
+            Console.WriteLine(e.Type);
+            e.AddHours(150);
+            Console.WriteLine(e.CalcSalary(30000));
         }
             
    

@@ -48,8 +48,6 @@
   <ItemGroup>
     <Compile Include="Employee.cs" />
     <Compile Include="EmployeeFactory.cs" />
-    <Compile Include="ManagementEmployees.cs" />
-    <Compile Include="ProfessionalEmployees.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
