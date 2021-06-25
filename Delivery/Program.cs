@@ -12,17 +12,22 @@ namespace DeliveryDepartment
     class Program
     {
         static void Main(string[] args)
-        {
+        { 
+            // All loops will run until user 
+
+            // Calls creation methos - employees to use
             EmplopyeeFactory ef = new EmplopyeeFactory();
             List<Employee> employeeList = ef.CreateEmployees();
             int actionChoice;
             string action = "start";
             int employeeId;
+            // exit option from main menu
             while (!action.Equals('q'))
             {
                 Console.WriteLine("Menu:");
                 Console.Write("1 - Add hours for employee, 2 - Calculate Employee Salary, 3 - Get employee Details,  q - Exit: ");
                 action = Console.ReadLine();
+                // checks if user wants to exit or if no input was given
                 if (string.IsNullOrEmpty(action))
                     continue;
                 else
@@ -94,6 +99,7 @@ namespace DeliveryDepartment
                                                         {
                                                             emp.AddHours(hours.TotalHours);
                                                             Console.WriteLine("Added {0} hours to employee {1}", hours.TotalHours, employeeId);
+                                                            break;
                                                         }
                                                     }
                                                     else
@@ -102,6 +108,7 @@ namespace DeliveryDepartment
                                                         continue;
                                                     }
                                                 }
+                                                break;
                                             }
 
                                             else
@@ -111,6 +118,7 @@ namespace DeliveryDepartment
                                             }
                                         }
                                         break;
+                                    // Calculate employee salary
                                     case 2:
                                         Console.WriteLine("Enter the wage for employees (global wage for management): ");
                                         int wage = Convert.ToInt32(Console.ReadLine());
@@ -121,12 +129,14 @@ namespace DeliveryDepartment
                                             Console.WriteLine("Employee {0} current salary is: {1} nis", employeeId.ToString(), salary.ToString());
                                         }
                                         break;
+                                    // print employee details
                                     case 3:
                                         Console.WriteLine(emp.ToString());
                                         break;
                                 }
                             }
                         }
+                        break;
                     }
                     else
                     {

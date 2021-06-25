@@ -8,6 +8,7 @@ namespace DeliveryDepartment
 {
     class EmplopyeeFactory
     {
+        // Created a list of employees for the program to use
         public List<Employee> CreateEmployees()
         {
             List<Employee> employees = new List<Employee>();
