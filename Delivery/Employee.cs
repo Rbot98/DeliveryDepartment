@@ -59,17 +59,18 @@ namespace DeliveryDepartment
         {
             get { return (int)this._type; }
         }
-        public void AddHours(double hours)
-        {
-            // method to add monthly working hours
-            _hours += hours;
-        }
         public Employee(int id, string type)
         {
             // Create new employee with generic properties, specific properties in child classes
             this._id = id;
             this._hours = 0; // starter of monthly hours
             this._type = (EmployeeType)Enum.Parse(typeof(EmployeeType), type, true);
+        }
+        public double AddHours(double hours)
+        {
+            // method to add monthly working hours
+            this._hours += hours;
+            return this._hours;
         }
         public double CalcSalary(double wage)
         {

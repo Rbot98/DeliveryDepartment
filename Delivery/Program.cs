@@ -62,72 +62,11 @@ namespace DeliveryDepartment
 
                                     // Add Hours
                                     case 1:
-                                        string startTime = "start";
-                                        while (!startTime.Equals('q'))
-                                        {
-                                            Console.WriteLine("Enter start time (dd/MM/yyyy HH:mm), (q) - to go back: ");
-                                            startTime = Console.ReadLine();
-                                            if (string.IsNullOrEmpty(startTime))
-                                                continue;
-                                            else
-                                            {
-                                                if (startTime.Equals("q"))
-                                                    break;
-                                            }
-                                            CultureInfo invariant = System.Globalization.CultureInfo.InvariantCulture;
-                                            DateTime start;
-                                            if (DateTime.TryParseExact(startTime, "dd/MM/yyyy HH:mm", invariant, DateTimeStyles.None, out start))
-                                            {
-                                                while (!startTime.Equals('q'))
-                                                {
-                                                    Console.WriteLine("Enter end time (dd/MM/yyyy HH:mm), (q) - to go back: ");
-                                                    string endTime = Console.ReadLine();
-                                                    if (string.IsNullOrEmpty(endTime))
-                                                        continue;
-                                                    else
-                                                    {
-                                                        if (endTime.Equals("q"))
-                                                            break;
-                                                    }
-                                                    DateTime end;
-                                                    if (DateTime.TryParseExact(endTime, "dd/MM/yyyy HH:mm", invariant, DateTimeStyles.None, out end))
-                                                    {
-                                                        TimeSpan hours = end - start;
-                                                        if (hours.TotalHours < 0)
-                                                            Console.WriteLine("End time has to be later than start time");
-                                                        else
-                                                        {
-                                                            emp.AddHours(hours.TotalHours);
-                                                            Console.WriteLine("Added {0} hours to employee {1}", hours.TotalHours, employeeId);
-                                                            break;
-                                                        }
-                                                    }
-                                                    else
-                                                    {
-                                                        Console.WriteLine("Incorrect End Time...");
-                                                        continue;
-                                                    }
-                                                }
-                                                break;
-                                            }
-
-                                            else
-                                            {
-                                                Console.WriteLine("Incorrect Start Time...");
-                                                continue;
-                                            }
-                                        }
+                                        EmployeeAddHours(emp);
                                         break;
                                     // Calculate employee salary
                                     case 2:
-                                        Console.WriteLine("Enter the wage for employees (global wage for management): ");
-                                        int wage = Convert.ToInt32(Console.ReadLine());
-
-                                        if (emp.ID.Equals(employeeId))
-                                        {
-                                            double salary = emp.CalcSalary(wage);
-                                            Console.WriteLine("Employee {0} current salary is: {1} nis", employeeId.ToString(), salary.ToString());
-                                        }
+                                        CalculateSalary(emp);
                                         break;
                                     // print employee details
                                     case 3:
@@ -146,6 +85,74 @@ namespace DeliveryDepartment
 
                 }
             }
+        }
+        public static void EmployeeAddHours(Employee emp)
+        {
+            string startTime = "start";
+            while (!startTime.Equals('q'))
+            {
+                Console.WriteLine("Enter start time (dd/MM/yyyy HH:mm), (q) - to go back: ");
+                startTime = Console.ReadLine();
+                if (string.IsNullOrEmpty(startTime))
+                    continue;
+                else
+                {
+                    if (startTime.Equals("q"))
+                        break;
+                }
+                CultureInfo invariant = System.Globalization.CultureInfo.InvariantCulture;
+                DateTime start;
+                if (DateTime.TryParseExact(startTime, "dd/MM/yyyy HH:mm", invariant, DateTimeStyles.None, out start))
+                {
+                    while (!startTime.Equals('q'))
+                    {
+                        Console.WriteLine("Enter end time (dd/MM/yyyy HH:mm), (q) - to go back: ");
+                        string endTime = Console.ReadLine();
+                        if (string.IsNullOrEmpty(endTime))
+                            continue;
+                        else
+                        {
+                            if (endTime.Equals("q"))
+                                break;
+                        }
+                        DateTime end;
+                        if (DateTime.TryParseExact(endTime, "dd/MM/yyyy HH:mm", invariant, DateTimeStyles.None, out end))
+                        {
+                            TimeSpan hours = end - start;
+                            if (hours.TotalHours < 0)
+                                Console.WriteLine("End time has to be later than start time");
+                            else
+                            {
+                                double totalHours = emp.AddHours(hours.TotalHours);
+                                Console.WriteLine("Added {0} hours to employee {1}, Total hours so far: {2}", hours.TotalHours, emp.ID, totalHours);
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("Incorrect End Time...");
+                            continue;
+                        }
+                    }
+                    break;
+                }
+
+                else
+                {
+                    Console.WriteLine("Incorrect Start Time...");
+                    continue;
+                }
+            }
+            
+        }
+
+        public static void CalculateSalary(Employee emp)
+        {
+            Console.WriteLine("Enter the wage for employees (global wage for management): ");
+            int wage = Convert.ToInt32(Console.ReadLine());
+            double salary = emp.CalcSalary(wage);
+            Console.WriteLine("Employee {0} current salary is: {1} nis", emp.ID.ToString(), salary.ToString());
+            
         }
     }
 }
