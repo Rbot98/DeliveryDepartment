@@ -46,6 +46,7 @@ namespace DeliveryDepartment
         protected int _id;
         private double _hours;
         protected EmployeeType _type;
+        private double _wage;
         public int ID
         {
             get { return this._id; }
@@ -59,20 +60,23 @@ namespace DeliveryDepartment
         {
             get { return (int)this._type; }
         }
-        public Employee(int id, string type)
+        public Employee(int id, string type, double wage)
         {
             // Create new employee with generic properties, specific properties in child classes
             this._id = id;
             this._hours = 0; // starter of monthly hours
+            this._wage = wage;
             this._type = (EmployeeType)Enum.Parse(typeof(EmployeeType), type, true);
         }
-        public double AddHours(double hours)
+        public double AddHours(DateTime start, DateTime end)
         {
             // method to add monthly working hours
-            this._hours += hours;
-            return this._hours;
+            TimeSpan hours = end - start;
+            this._hours += hours.TotalHours;
+            return hours.TotalHours;
+
         }
-        public double CalcSalary(double wage)
+        public double CalcSalary()
         {
             double hours = this._hours;
             EmployeeType type = this._type;
@@ -106,9 +110,9 @@ namespace DeliveryDepartment
             double baseSalary;
             // Check to see if employee is manager for global wage salary
             if (employeeRanks[type].Contains(Ranks.Manager))
-                baseSalary = wage;
+                baseSalary = this._wage;
             else
-                baseSalary = hours * wage;
+                baseSalary = hours * this._wage;
 
             foreach (EmployeeType key in employeeRanks.Keys)
             {
@@ -137,16 +141,16 @@ namespace DeliveryDepartment
                             if (hours > 50)
                                 // checks if employee is manager
                                 if (employeeRanks[type].Contains(Ranks.Manager))
-                                    bonus += wage * 0.5;
+                                    bonus += this._wage * 0.5;
                                 else
-                                    bonus += 200 * wage * 0.5;
+                                    bonus += 200 * this._wage * 0.5;
                             break;
                         // risk bonus, specific for each risked employee
                         case Ranks.Risk:
                             if (type.Equals(EmployeeType.DepartmentManager))
-                                bonus = + wage * risk;
+                                bonus += this._wage * risk;
                             else
-                                bonus += wage * hours * risk;
+                                bonus += this._wage * hours * risk;
                             break;
                     }
                 }
@@ -158,9 +162,10 @@ namespace DeliveryDepartment
         {
 
             return "Employee Details:" + "\n"
-                + "Name: " + this._id + "\n"
+                + "ID: " + this._id + "\n"
                 + "Profession: " + this._type.ToString() + "\n"
-                + "Hours worked so far: " + this._hours + "\n";
+                + "Hours worked so far: " + this._hours + "\n"
+                + "Wage: " + this._wage;
         }
 
     }
