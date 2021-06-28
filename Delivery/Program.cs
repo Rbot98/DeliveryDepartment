@@ -86,11 +86,11 @@ namespace DeliveryDepartment
             Console.WriteLine("Menu:");
             string exit = "";
             int id = 0;
-            Console.WriteLine("Choose 1 to create new Employee list Or 2 to use random list of employees: ");
-            employeeChoice = Console.ReadLine();
+            
             while (!exit.Equals("n"))
             {
-
+                Console.WriteLine("Choose 1 to create new Employee list Or 2 to use random list of employees: ");
+                employeeChoice = Console.ReadLine();
                 if (employeeChoice.Equals("1"))
                 {
 
