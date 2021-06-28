@@ -54,11 +54,17 @@ namespace DeliveryDepartment
         public double Hours
         {
             get { return this._hours; }
-            set { this._hours = value; }
+            
         }
         public int Type
         {
             get { return (int)this._type; }
+            
+        }
+        public double Wage
+        {
+            get {return this._wage;}
+            set {this._wage = value;}
         }
         public Employee(int id, string type, double wage)
         {
